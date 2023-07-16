@@ -1,0 +1,34 @@
+---
+title: banyan的个人博客
+cover: https://i.loli.net/2019/07/21/5d33d5dc1531213134.png
+coverWidth: 1200
+coverHeight: 750
+top: true
+tag:
+  -	about
+categories: 
+  - about
+---
+
+
+
+
+
+# 我是banyan
+
+
+
+- 这里主要是更新我自己的笔记以及一些随笔
+
+  
+
+- 欢迎访问我的GitHub
+
+
+
+[![Untitled](images/3.jpg)](https://github.com/dawweadaw01)
+
+
+
+- **对了，记得给主播点点关注**
+
