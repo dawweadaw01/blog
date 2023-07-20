@@ -4,7 +4,6 @@ cover: https://close2u.work/images/2.jpg
 coverWidth: 1200
 coverHeight: 750
 date: 2023-07-10
-top: true
 tag:
   -	Centos7
   - Docker
@@ -23,7 +22,7 @@ categories:
 
 # Centos7安装Docker
 
-# 0.安装Docker
+# 安装Docker
 
 Docker 分为 CE 和 EE 两大版本。CE 即社区版（免费，支持周期 7 个月），EE 即企业版，强调安全，付费使用，支持周期 24 个月。
 
@@ -31,11 +30,11 @@ Docker CE 分为 `stable` `test` 和 `nightly` 三个更新频道。
 
 官方网站上有各种环境下的 [安装指南](https://docs.docker.com/install/)，这里主要介绍 Docker CE 在 CentOS上的安装。
 
-# 1.CentOS安装Docker
+# CentOS安装Docker
 
 Docker CE 支持 64 位版本 CentOS 7，并且要求内核版本不低于 3.10， CentOS 7 满足最低内核的要求，所以我们在CentOS 7安装Docker。
 
-## 1.1.卸载（可选）
+## 卸载（可选）
 
 如果之前安装过旧版本的Docker，可以使用下面命令卸载：
 
@@ -53,7 +52,7 @@ yum remove docker \
                   docker-ce
 ```
 
-## 1.2.安装docker
+## 安装docker
 
 首先需要大家虚拟机联网，安装yum工具
 
@@ -82,7 +81,7 @@ yum install -y docker-ce
 
 docker-ce为社区免费版本。稍等片刻，docker即可安装成功。
 
-## 1.3.启动docker
+## 启动docker
 
 Docker应用需要用到各种端口，逐一去修改防火墙设置。非常麻烦，因此建议大家直接关闭防火墙！
 
@@ -114,15 +113,15 @@ image-20210418154704436
 
 ![Untitled](images/Centos7安装Docker/Untitled.png)
 
-## 1.4.配置镜像加速
+## 配置镜像加速
 
 docker官方镜像仓库网速较差，我们需要设置国内镜像服务：
 
 参考阿里云的镜像加速文档：https://cr.console.aliyun.com/cn-hangzhou/instances/mirrors
 
-# 2.CentOS7安装DockerCompose
+# CentOS7安装DockerCompose
 
-## 2.1.下载
+## 下载
 
 Linux下需要通过命令下载：
 
@@ -138,7 +137,7 @@ image-20210417133020614
 
 上传到`/usr/local/bin/`目录也可以。
 
-## 2.2.修改文件权限
+## 修改文件权限
 
 修改文件权限：
 
@@ -146,7 +145,7 @@ image-20210417133020614
 # 修改权限chmod +x /usr/local/bin/docker-compose
 ```
 
-## 2.3.Base自动补全命令：
+## Base自动补全命令：
 
 ```
 # 补全命令curl -L https://raw.githubusercontent.com/docker/compose/1.29.1/contrib/completion/bash/docker-compose > /etc/bash_completion.d/docker-compose
@@ -158,13 +157,13 @@ image-20210417133020614
 echo "199.232.68.133 raw.githubusercontent.com" >> /etc/hosts
 ```
 
-# 3.Docker镜像仓库
+# Docker镜像仓库
 
 搭建镜像仓库可以基于Docker官方提供的DockerRegistry来实现。
 
 官网地址：https://hub.docker.com/_/registry
 
-## 3.1.简化版镜像仓库
+## 简化版镜像仓库
 
 Docker官方的Docker Registry是一个基础版本的Docker镜像仓库，具备仓库管理的完整功能，但是没有图形化界面。
 
@@ -183,7 +182,7 @@ docker run -d \
 
 访问http://YourIp:5000/v2/_catalog 可以查看当前私有镜像服务中包含的镜像
 
-## 3.2.带有图形化界面版本
+## 带有图形化界面版本
 
 使用DockerCompose部署带有图象界面的DockerRegistry，命令如下：
 
@@ -211,7 +210,7 @@ services:
 
 最好安装static版本
 
-## 3.3.配置Docker信任地址
+## 配置Docker信任地址
 
 我们的私服采用的是http协议，默认不被Docker信任，所以需要做一个配置：
 
@@ -226,9 +225,9 @@ systemctl daemon-reload
 systemctl restart docker
 ```
 
-## 4.Docker中安装redis
+## Docker中安装redis
 
-### 一、Docker搜索redis镜像
+### Docker搜索redis镜像
 
 命令：docker search <镜像名称>
 
@@ -238,7 +237,7 @@ docker search redis
 
 可以看到有很多redis的镜像，此处因没有指定版本，所以下载的就是默认的最新版本 。redis latest.
 
-### 二、Docker拉取镜像
+### Docker拉取镜像
 
 命令：：docker pull <镜像名称>:<版本号>
 
@@ -246,7 +245,7 @@ docker search redis
 docker pull redis
 ```
 
-### 三、Docker挂载配置文件
+### Docker挂载配置文件
 
 接下来就是要将redis 的配置文件进行挂载，以配置文件方式启动redis 容器。（挂载：即将宿主的文件和容器内部目录相关联，相互绑定，在宿主机内修改文件的话也随之修改容器内部文件）
 
@@ -260,7 +259,7 @@ liunx 下redis.conf文件位置： /home/redis/dockerredis/redis.conf
 
 liunx 下redis的data文件位置 ： /home/dockerredis/myredis/data
 
-### 四、启动redis 容器
+### 启动redis 容器
 
 ```xml
 docker run --log-opt max-size=100m --log-opt max-file=2 -p 6379:6379 --name myredis -v /home/redis/dockerredis/redis.conf:/etc/redis/redis.conf -v /home/redis/dockerredis/data:/data -d redis:7.0 redis-server /etc/redis/redis.conf  --appendonly yes  --requirepass lhj020826..
@@ -290,7 +289,7 @@ redis.conf的
  `–appendonly yes` 开启redis 持久化
 `–requirepass lhj020826..`
 
-### 五、测试
+### 测试
 1、通过docker ps指令查看启动状态
 `docker ps -a |grep myredis` # 通过docker ps指令查看启动状态，是否成功.
 
@@ -334,7 +333,7 @@ config get requirepass
 
 ![Untitled](images/Centos7安装Docker/Untitled%208.png)
 
-### 六、配置文件
+### 配置文件
 redis.conf
 
 ```xml
@@ -401,7 +400,7 @@ aof-rewrite-incremental-fsync yes
 rdb-save-incremental-fsync yes
 ```
 
-### 七、Docker删除Redis
+### Docker删除Redis
 
 6.1、删除Redis 容器
 查看所有在运行的容器：

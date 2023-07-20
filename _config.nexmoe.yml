@@ -36,6 +36,9 @@ menu:
     me:
         - /about.html
         - icon-info-circle
+    #test:
+     #   - /test.html
+      #  - icon-info-circle
 
 widgets:
     - name: search

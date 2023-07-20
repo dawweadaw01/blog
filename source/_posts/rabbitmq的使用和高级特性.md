@@ -1,7 +1,7 @@
 ---
 title: rabbitmq使用和高级特性
 date: 2023-7-5
-cover: https://s2.loli.net/2023/07/16/9wqUGTRdE6v1IZF.jpg
+cover: https://close2u.work/images/4.png
 coverWidth: 1200
 coverHeight: 750
 tag:
@@ -81,7 +81,7 @@ docker exec -it mq cat /var/lib/rabbitmq/.erlang.cookie
 
 ![Untitled](images/Untitled%201.png)
 
-2.2.2创建相同的配置文件
+### 创建相同的配置文件
 
 ![Untitled](images/Untitled%202.png)
 
@@ -103,6 +103,12 @@ cluster_formation.classic_config.nodes.3 = rabbit@mq3
 ### 创建n个文件夹来实现配置文件的存放例如
 
 ![Untitled](images/Untitled%204.png)
+
+### 创建一个网段
+
+```dockerfile
+docker network create [OPTIONS] NETWORK
+```
 
 ### 启动容器
 

@@ -1,9 +1,8 @@
 ---
 title: Spring Cloud
-cover: https://s2.loli.net/2023/07/16/9wqUGTRdE6v1IZF.jpg
+cover: https://close2u.work/images/4.png
 coverWidth: 1200
 coverHeight: 750
-top: true
 tag:
   -	Spring Cloud
   - nacos

@@ -1,8 +1,7 @@
 ---
 title: Mybatis-plus 使用技巧
-top: true
 date: 2023-7-3
-cover: https://s2.loli.net/2023/07/16/9wqUGTRdE6v1IZF.jpg
+cover: https://close2u.work/images/4.png
 coverWidth: 1200
 coverHeight: 750
 tag:
