@@ -1,6 +1,6 @@
 ---
 title: Linux随笔
-cover: https://close2u.work/images/2.jpg
+cover: http://ban.japaneast.cloudapp.azure.com/images/2.jpg
 coverWidth: 1200
 coverHeight: 750
 date: 2023-07-12

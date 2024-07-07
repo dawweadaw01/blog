@@ -1,6 +1,6 @@
 ---
 title: Spring Cloud
-cover: https://close2u.work/images/4.png
+cover: http://ban.japaneast.cloudapp.azure.com/images/4.png
 coverWidth: 1200
 coverHeight: 750
 tag:

@@ -1,7 +1,7 @@
 ---
 title: rabbitmq使用和高级特性
 date: 2023-7-5
-cover: https://close2u.work/images/4.png
+cover: http://ban.japaneast.cloudapp.azure.com/images/4.png
 coverWidth: 1200
 coverHeight: 750
 tag:
@@ -80,6 +80,12 @@ docker exec -it mq cat /var/lib/rabbitmq/.erlang.cookie
 ```
 
 ![Untitled](images/Untitled%201.png)
+
+设置权限为
+
+```bash
+chmod 600 .erlang.cookie
+```
 
 ### 创建相同的配置文件
 

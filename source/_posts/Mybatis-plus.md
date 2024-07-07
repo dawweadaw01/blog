@@ -1,7 +1,7 @@
 ---
 title: Mybatis-plus 使用技巧
 date: 2023-7-3
-cover: https://close2u.work/images/4.png
+cover: http://ban.japaneast.cloudapp.azure.com/images/4.png
 coverWidth: 1200
 coverHeight: 750
 tag:
